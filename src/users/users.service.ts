@@ -16,7 +16,7 @@ export class UsersService {
     }
 
     //get one user 
-    async findOne(id: number): Promise<User> {
+    async findOne(id: number): Promise<User | null> {
         return await this.usersRespository.findOne({ where : { id }})
     }
 
@@ -27,7 +27,7 @@ export class UsersService {
     }
 
     //update user
-    async update(id: number, user: User): Promise<User> {
+    async update(id: number, user: User): Promise<User | null> {
         await this.usersRespository.update(id, user);
         return await this.usersRespository.findOne( { where : { id }});
     }
